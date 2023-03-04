@@ -29,9 +29,9 @@ SELECT CONCAT(A.first_name, ' ', A.last_name) AS actor, COUNT(F.film_id) AS appe
 FROM actor AS A
 INNER JOIN film_actor AS F
 ON A.actor_id = F.actor_id
-GROUP BY actor
+GROUP BY A.actor_id, A.first_name, A.last_name
 ORDER BY appearances DESC
-LIMIT 1;
+LIMIT 5;
 
 # 5. Which is the most active customer (the customer that has rented the most number of films)? 
 # **Hint**: Use appropriate join between the tables "customer" and "rental" and count the `rental_id` for each customer.
